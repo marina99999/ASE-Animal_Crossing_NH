@@ -1,0 +1,2 @@
+public class Benutzereingabelogik {
+}
