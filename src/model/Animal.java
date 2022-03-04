@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Animal {
@@ -12,5 +13,18 @@ public class Animal {
         this.animalFish = animalFish;
         this.animalBug = animalBug;
         this.animalSea = animalSea;
+    }
+
+
+    public List<Fish> getAnimalFish() {
+        return animalFish;
+    }
+
+    public List<Bug> getAnimalBug() {
+        return animalBug;
+    }
+
+    public List<Sea> getAnimalSea() {
+        return animalSea;
     }
 }

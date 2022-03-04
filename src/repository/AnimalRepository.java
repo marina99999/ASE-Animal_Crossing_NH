@@ -31,7 +31,7 @@ public class AnimalRepository {
         animalSea.add(kriechsprossalge);
 
         Animal hardcodedAnimal = new Animal( animalFish, animalBug, animalSea);
-        System.out.println(animalFish.toString());
+        //System.out.println(animalFish.toString());
         return hardcodedAnimal;
     }
 

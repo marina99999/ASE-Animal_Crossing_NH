@@ -1,6 +1,9 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.IntStream;
 
 public class Fish {
 
@@ -24,6 +27,45 @@ public class Fish {
         this.monthArraySouthern = monthArraySouthern;
     }
 
+    public List getCachableFish(int[] userInput, Animal animalList){
+        List<Fish> catchableFish = new ArrayList<>();
+        List<Fish> checkTime = new ArrayList<>();
+        for (Fish fish: animalList.getAnimalFish()) {
+            boolean contains = IntStream.of(fish.getTimeArray()).anyMatch(x -> x == userInput[2]);
+            /*for(int i = 0; fish.getTimeArray().length > i; i++){
+              if(fish.getTimeArray()[i] == userInput[2]){
+                    catchableFish.add(fish);
+              }
+            }*/
+            if(contains){
+                checkTime.add(fish);
+            }
+        }
+
+        if(userInput[0] == 1) {
+            for (Fish fish: checkTime) {
+                boolean contains = IntStream.of(fish.getMonthArrayNorthern()).anyMatch(x -> x == userInput[1]);
+                if(contains){
+                    catchableFish.add(fish);
+                }
+            }
+        } else if(userInput[0] == 2) {
+            for (Fish fish: checkTime) {
+                boolean contains = IntStream.of(fish.getMonthArraySouthern()).anyMatch(x -> x == userInput[1]);
+                if(contains){
+                    catchableFish.add(fish);
+                }
+            }
+
+        }
+        for (Fish fish: catchableFish) {
+            System.out.println(fish.toString());
+        }
+
+        return catchableFish;
+
+    }
+
     @Override
     public String toString() {
         return "Fish{" +
@@ -36,5 +78,37 @@ public class Fish {
                 ", monthArrayNorthern=" + Arrays.toString(monthArrayNorthern) +
                 ", monthArraySouthern=" + Arrays.toString(monthArraySouthern) +
                 '}';
+    }
+
+    public int getFishId() {
+        return fishId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getShadow() {
+        return shadow;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int[] getTimeArray() {
+        return timeArray;
+    }
+
+    public int[] getMonthArrayNorthern() {
+        return monthArrayNorthern;
+    }
+
+    public int[] getMonthArraySouthern() {
+        return monthArraySouthern;
     }
 }
