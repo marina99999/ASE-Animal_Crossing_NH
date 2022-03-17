@@ -28,7 +28,7 @@ public class UserInteraction {
         System.out.println("Mit welchem Benutzer möchtest du das Programm starten?");
         Scanner userNameInput = new Scanner(System.in);
         String userName = userNameInput.next();
-        userNameInput.close();
+        //userNameInput.close();
         return userName;
     }
 
@@ -36,7 +36,7 @@ public class UserInteraction {
         System.out.println("Welches Tier möchtest du dem Inventar hinzufügen?");
         Scanner animalNameInput = new Scanner(System.in);
         String animalName = animalNameInput.next();
-        animalNameInput.close();
+        //animalNameInput.close();
         return animalName;
     }
 
@@ -44,7 +44,7 @@ public class UserInteraction {
         System.out.println("Möchtest du ein Tier zum Inventar hinzufügen(1) oder möchtest du wissen was du gerade fangen kannst(2)?");
         Scanner nextActionInput = new Scanner(System.in);
         int nextAction = nextActionInput.nextInt();
-        nextActionInput.close();
+        //nextActionInput.close();
         if(nextAction ==1){
             String animalName = getUserInputForInventory();
             userService.addAnimalToUserFile(userName, animalName, userService, hardcodedAnimal);
