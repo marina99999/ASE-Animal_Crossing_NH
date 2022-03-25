@@ -47,10 +47,10 @@ public class UserService {
 
     public void addCheckedAnimalToUserFile(String userName, String animalName) {
 
-        Path path = Paths.get(userName + ".txt");
+        Path path = Paths.get("userDirectory\\"+ userName + ".txt");
         boolean containsAnimalName = false;
         try (PrintWriter pw = new PrintWriter(
-                new FileWriter(userName + ".txt", true)); BufferedReader br = new BufferedReader(new FileReader(userName + ".txt")))
+                new FileWriter("userDirectory\\"+ userName + ".txt", true)); BufferedReader br = new BufferedReader(new FileReader("userDirectory\\"+ userName + ".txt")))
         {
             String line;
             while ((line = br.readLine()) != null) {
@@ -68,5 +68,15 @@ public class UserService {
             System.err.println("Fehler beim Schreiben: " +
                     e.getMessage());
         }
+    }
+
+    public void OutputAllAnimal(String userName) throws FileNotFoundException {
+            File doc = new File("userDirectory\\"+ userName + ".txt");
+            Scanner obj = new Scanner(doc);
+        System.out.println( "Bisher gefangen:");
+            while (obj.hasNextLine()){
+                System.out.println(obj.nextLine());
+            }
+
     }
 }

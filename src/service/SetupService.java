@@ -3,9 +3,11 @@ package service;
 import model.Animal;
 import repository.AnimalRepository;
 
+import java.io.FileNotFoundException;
+
 public class SetupService {
 
-    public void firstSetup(){
+    public void firstSetup() throws FileNotFoundException {
         AnimalRepository f = new AnimalRepository();
         Animal hardcodedAnimal = f.createhardcodeAnimal();
         UserInteraction user = new UserInteraction();

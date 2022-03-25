@@ -27,6 +27,7 @@ public class Bug {
     public List getCachableBug(int[] userInput, Animal animalList){
         List<Bug> catchableBug = new ArrayList<>();
         List<Bug> checkTime = new ArrayList<>();
+        tableheader();
         for (Bug bug: animalList.getAnimalBug()) {
             boolean contains = IntStream.of(bug.getTimeArray()).anyMatch(x -> x == userInput[2]);
             if(contains){
@@ -88,14 +89,10 @@ public class Bug {
 
     @Override
     public String toString() {
-        return "Bug{" +
-                "bugId=" + bugId +
-                ", name='" + name + '\'' +
-                ", location='" + location + '\'' +
-                ", price=" + price +
-                ", timeArray=" + Arrays.toString(timeArray) +
-                ", monthArrayNorthern=" + Arrays.toString(monthArrayNorthern) +
-                ", monthArraySouthern=" + Arrays.toString(monthArraySouthern) +
-                '}';
+        return String.format("|%5s|%15s|%10s|%5s|", bugId, name, location, price);
+    }
+
+    public void tableheader() {
+        System.out.println(String.format("\nFangbare Insekten:\n|%5s|%15s|%10s|%5s|", "Id", "Name", "Ort", "Preis") + "\n----------------------------------------");
     }
 }

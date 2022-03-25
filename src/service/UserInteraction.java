@@ -2,6 +2,7 @@ package service;
 
 import model.Animal;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class UserInteraction {
@@ -40,17 +41,19 @@ public class UserInteraction {
         return animalName;
     }
 
-    public void getNextAction(InformationService informationService, UserService userService, String userName, Animal hardcodedAnimal){
-        System.out.println("Möchtest du ein Tier zum Inventar hinzufügen(1) oder möchtest du wissen was du gerade fangen kannst(2)?");
+    public void getNextAction(InformationService informationService, UserService userService, String userName, Animal hardcodedAnimal) throws FileNotFoundException {
+        System.out.println("Möchtest du ein Tier zum Inventar hinzufügen(1), dein Inventar Anzeigen(2) oder möchtest du wissen was du gerade fangen kannst(3)?");
         Scanner nextActionInput = new Scanner(System.in);
         int nextAction = nextActionInput.nextInt();
         //nextActionInput.close();
-        if(nextAction ==1){
+        if(nextAction ==1) {
             String animalName = getUserInputForInventory();
             userService.addAnimalToUserFile(userName, animalName, userService, hardcodedAnimal);
-        } else if(nextAction == 2){
+        }else  if(nextAction == 2){
+            userService.OutputAllAnimal(userName);
+        } else if(nextAction == 3){
             int[] userInput = getUserInputForCatchableAnimals();
-            informationService.getCatchableAnimals(userInput);
+            informationService.getCatchableAnimals(userInput, hardcodedAnimal);
         } else {
             System.out.println("Bitte gebe 1 oder 2 ein.");
             getNextAction(informationService,userService, userName, hardcodedAnimal);

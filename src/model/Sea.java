@@ -27,6 +27,7 @@ public class Sea {
     }
 
     public List getCachableSea(int[] userInput, Animal animalList){
+        tableheader();
         List<Sea> catchableSea = new ArrayList<>();
         List<Sea> checkTime = new ArrayList<>();
         for (Sea sea: animalList.getAnimalSea()) {
@@ -94,15 +95,10 @@ public class Sea {
 
     @Override
     public String toString() {
-        return "Sea{" +
-                "seaId=" + seaId +
-                ", name='" + name + '\'' +
-                ", shadow='" + shadow + '\'' +
-                ", price=" + price +
-                ", speed='" + speed + '\'' +
-                ", timeArray=" + Arrays.toString(timeArray) +
-                ", monthArrayNorthern=" + Arrays.toString(monthArrayNorthern) +
-                ", monthArraySouthern=" + Arrays.toString(monthArraySouthern) +
-                '}';
+        return String.format("|%5s|%20s|%10s|%15s|%5s|", seaId, name, shadow, speed, price);
+    }
+
+    public void tableheader() {
+        System.out.println(String.format("\nFangbare Meerestiere:\n|%5s|%20s|%10s|%15s|%5s|", "Id", "Name", "Größe", "Geschwindigkeit", "Preis") + "\n-------------------------------------------------------------");
     }
 }
