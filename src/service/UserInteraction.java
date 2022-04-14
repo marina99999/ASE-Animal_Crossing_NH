@@ -8,8 +8,7 @@ import java.util.Scanner;
 public class UserInteraction {
 
     public void showFirstMessage(){
-        System.out.println("Mit diesem Programm haben Sie die Möglichkeit ein Tierinventar zu erstellen oder " +
-                "Abfragen über die Sternis die ein Tier einbringen kann");
+        System.out.println("Willkommen zum Animal Crossing: New Horizons Hilfsprogramm");
     }
 
     public int[] getUserInputForCatchableAnimals(){
@@ -42,21 +41,25 @@ public class UserInteraction {
     }
 
     public void getNextAction(InformationService informationService, UserService userService, String userName, Animal hardcodedAnimal) throws FileNotFoundException {
-        System.out.println("Möchtest du ein Tier zum Inventar hinzufügen(1), dein Inventar Anzeigen(2) oder möchtest du wissen was du gerade fangen kannst(3)?");
-        Scanner nextActionInput = new Scanner(System.in);
-        int nextAction = nextActionInput.nextInt();
-        //nextActionInput.close();
-        if(nextAction ==1) {
-            String animalName = getUserInputForInventory();
-            userService.addAnimalToUserFile(userName, animalName, userService, hardcodedAnimal);
-        }else  if(nextAction == 2){
-            userService.OutputAllAnimal(userName);
-        } else if(nextAction == 3){
-            int[] userInput = getUserInputForCatchableAnimals();
-            informationService.getCatchableAnimals(userInput, hardcodedAnimal);
-        } else {
-            System.out.println("Bitte gebe 1 oder 2 ein.");
-            getNextAction(informationService,userService, userName, hardcodedAnimal);
+        while(true) {
+            System.out.println("Möchtest du ein Tier zum Inventar hinzufügen(1), dein Inventar Anzeigen(2) oder möchtest du wissen was du gerade fangen kannst(3)? Zum Beenden bitte die 4 eingeben.");
+            Scanner nextActionInput = new Scanner(System.in);
+            int nextAction = nextActionInput.nextInt();
+            //nextActionInput.close();
+            if (nextAction == 1) {
+                String animalName = getUserInputForInventory();
+                userService.addAnimalToUserFile(userName, animalName, userService, hardcodedAnimal);
+            } else if (nextAction == 2) {
+                userService.OutputAllAnimal(userName);
+            } else if (nextAction == 3) {
+                int[] userInput = getUserInputForCatchableAnimals();
+                informationService.getCatchableAnimals(userInput, hardcodedAnimal);
+            } else if (nextAction == 4) {
+                System.exit(0);
+            } else {
+                System.out.println("Bitte gebe 1, 2 oder 3 ein.");
+                getNextAction(informationService, userService, userName, hardcodedAnimal);
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class UserService {
     File userDirectory = new File("userDirectory");
@@ -54,13 +55,15 @@ public class UserService {
         {
             String line;
             while ((line = br.readLine()) != null) {
-                if (line.contains(animalName.toLowerCase())) {
+                if (line.toLowerCase().contains(animalName.toLowerCase())) {
                     containsAnimalName = true;
                 }
             }
 
             if (!containsAnimalName) {
                 pw.println(animalName);
+            } else {
+                System.out.println("Das Tier existiert bereits in deinem Inventar");
             }
 
 
@@ -79,4 +82,5 @@ public class UserService {
             }
 
     }
+
 }
