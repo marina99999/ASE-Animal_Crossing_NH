@@ -12,13 +12,13 @@ public class UserInteraction {
     }
 
     public int[] getUserInputForCatchableAnimals(){
-        System.out.println("Um dir zu sagen, was du gerade fangen kannst, brauche ich erst ein paar Informationen?");
+        System.out.println("Um dir zu sagen, was du gerade fangen kannst, brauche ich zuerst ein paar Informationen:");
         Scanner userInputScanner = new Scanner(System.in);
         System.out.println("Liegt deine Insel auf der Nordhalbkugel(1) oder Südhalbkugel(2)?");
         int hemisphere = userInputScanner.nextInt();
-        System.out.printf("Welcher Monat ist gerade auf deiner Insel? (Beispiel 1 = Januar ,..., 12 = Dezember) ");
+        System.out.printf("Welcher Monat ist gerade auf deiner Insel? (Beispiel: 1 = Januar, ..., 12 = Dezember)");
         int month = userInputScanner.nextInt();
-        System.out.println("Welche Uhrzeit ist auf deiner Insel? (Bitte nur die volle Stunde eingeben Beispiel: 16 für 16:34 und 1 für 01:30");
+        System.out.println("Welche Uhrzeit ist auf deiner Insel? (Bitte nur die volle Stunde eingeben. Beispiel: 16 für 16:34 Uhr und 1 für 01:30 Uhr");
         int time = userInputScanner.nextInt();
         int[] userInput = {hemisphere,month,time};
         return userInput;
@@ -33,7 +33,7 @@ public class UserInteraction {
     }
 
     public String getUserInputForInventory(){
-        System.out.println("Welches Tier möchtest du dem Inventar hinzufügen?");
+        System.out.println("Welches Tier möchtest du deinem Inventar hinzufügen?");
         Scanner animalNameInput = new Scanner(System.in);
         String animalName = animalNameInput.next();
         //animalNameInput.close();
@@ -42,7 +42,7 @@ public class UserInteraction {
 
     public void getNextAction(InformationService informationService, UserService userService, String userName, Animal hardcodedAnimal) throws FileNotFoundException {
         while(true) {
-            System.out.println("Möchtest du ein Tier zum Inventar hinzufügen(1), dein Inventar Anzeigen(2) oder möchtest du wissen was du gerade fangen kannst(3)? Zum Beenden bitte die 4 eingeben.");
+            System.out.println("Möchtest du ein Tier zum Inventar hinzufügen(1), dein Inventar anzeigen(2) oder möchtest du wissen, was du gerade fangen kannst(3)? Zum Beenden bitte die 4 eingeben.");
             Scanner nextActionInput = new Scanner(System.in);
             int nextAction = nextActionInput.nextInt();
             //nextActionInput.close();
@@ -57,7 +57,7 @@ public class UserInteraction {
             } else if (nextAction == 4) {
                 System.exit(0);
             } else {
-                System.out.println("Bitte gebe 1, 2 oder 3 ein.");
+                System.out.println("Bitte gebe 1, 2, 3 oder 4 ein.");
                 getNextAction(informationService, userService, userName, hardcodedAnimal);
             }
         }
