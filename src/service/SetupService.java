@@ -6,7 +6,6 @@ import repository.AnimalRepository;
 import java.io.FileNotFoundException;
 
 public class SetupService {
-
     public void firstSetup() throws FileNotFoundException {
         AnimalRepository f = new AnimalRepository();
         Animal hardcodedAnimal = f.createHardcodedAnimal();

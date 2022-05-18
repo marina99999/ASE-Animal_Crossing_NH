@@ -5,6 +5,7 @@ import model.Animal;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class UserService {
@@ -46,8 +47,7 @@ public class UserService {
 
         Path path = Paths.get("userDirectory\\" + userName + ".txt");
         boolean containsAnimalName = false;
-        try (PrintWriter pw = new PrintWriter(
-                new FileWriter("userDirectory\\" + userName + ".txt", true)); BufferedReader br = new BufferedReader(new FileReader("userDirectory\\" + userName + ".txt"))) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("userDirectory\\" + userName + ".txt", true)); BufferedReader br = new BufferedReader(new FileReader("userDirectory\\" + userName + ".txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 if (line.toLowerCase().contains(animalName.toLowerCase())) {
@@ -55,24 +55,28 @@ public class UserService {
                 }
             }
             if (!containsAnimalName) {
+                animalName = animalName.toLowerCase();
+                animalName = animalName.substring(0, 1).toUpperCase() + animalName.substring(1);
                 pw.println(animalName);
             } else {
-                System.out.println("Das Tier existiert bereits in deinem Inventar");
+                System.out.println("Das Tier existiert bereits in deinem Inventar!");
             }
         } catch (IOException e) {
-            System.err.println("Fehler beim Schreiben: " +
-                    e.getMessage());
+            System.err.println("Fehler beim Schreiben: " + e.getMessage());
         }
     }
 
     public void OutputAllAnimalsOfInventory(String userName) throws FileNotFoundException {
-        File doc = new File("userDirectory\\" + userName + ".txt");
-        Scanner obj = new Scanner(doc);
-        System.out.println("Bisher gefangen:");
-        while (obj.hasNextLine()) {
-            System.out.println(obj.nextLine());
+        File userInventory = new File("userDirectory\\" + userName + ".txt");
+        Scanner scanner = new Scanner(userInventory);
+        if (userInventory.length() == 0){
+            System.out.println("Dein Inventar ist leer!");
+        } else {
+            System.out.println("Bisher gefangen:");
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
         }
-
     }
 
 }
