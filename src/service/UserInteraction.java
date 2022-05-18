@@ -50,7 +50,7 @@ public class UserInteraction {
                 String animalName = getUserInputForInventory();
                 userService.addAnimalToUserFile(userName, animalName, userService, hardcodedAnimal);
             } else if (nextAction == 2) {
-                userService.OutputAllAnimal(userName);
+                userService.OutputAllAnimalsOfInventory(userName);
             } else if (nextAction == 3) {
                 int[] userInput = getUserInputForCatchableAnimals();
                 informationService.getCatchableAnimals(userInput, hardcodedAnimal);

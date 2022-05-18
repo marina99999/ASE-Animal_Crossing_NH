@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -24,7 +23,7 @@ public class Bug {
         this.monthArraySouthern = monthArraySouthern;
     }
 
-    public List getCachableBug(int[] userInput, Animal animalList){
+    public List getCatchableBug(int[] userInput, Animal animalList){
         List<Bug> catchableBug = new ArrayList<>();
         List<Bug> checkTime = new ArrayList<>();
         tableheader();
@@ -49,14 +48,11 @@ public class Bug {
                     catchableBug.add(bug);
                 }
             }
-
         }
         for (Bug bug: catchableBug) {
             System.out.println(bug.toString());
         }
-
         return catchableBug;
-
     }
 
     public int getBugId() {

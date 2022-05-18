@@ -1,7 +1,5 @@
 package model;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -27,44 +25,36 @@ public class Fish {
         this.monthArraySouthern = monthArraySouthern;
     }
 
-    public List getCachableFish(int[] userInput, Animal animalList){
+    public List getCatchableFish(int[] userInput, Animal animalList) {
         tableheader();
         List<Fish> catchableFish = new ArrayList<>();
         List<Fish> checkTime = new ArrayList<>();
-        for (Fish fish: animalList.getAnimalFish()) {
+        for (Fish fish : animalList.getAnimalFish()) {
             boolean contains = IntStream.of(fish.getTimeArray()).anyMatch(x -> x == userInput[2]);
-            /*for(int i = 0; fish.getTimeArray().length > i; i++){
-              if(fish.getTimeArray()[i] == userInput[2]){
-                    catchableFish.add(fish);
-              }
-            }*/
-            if(contains){
+            if (contains) {
                 checkTime.add(fish);
             }
         }
 
-        if(userInput[0] == 1) {
-            for (Fish fish: checkTime) {
+        if (userInput[0] == 1) {
+            for (Fish fish : checkTime) {
                 boolean contains = IntStream.of(fish.getMonthArrayNorthern()).anyMatch(x -> x == userInput[1]);
-                if(contains){
+                if (contains) {
                     catchableFish.add(fish);
                 }
             }
-        } else if(userInput[0] == 2) {
-            for (Fish fish: checkTime) {
+        } else if (userInput[0] == 2) {
+            for (Fish fish : checkTime) {
                 boolean contains = IntStream.of(fish.getMonthArraySouthern()).anyMatch(x -> x == userInput[1]);
-                if(contains){
+                if (contains) {
                     catchableFish.add(fish);
                 }
             }
-
         }
-        for (Fish fish: catchableFish) {
+        for (Fish fish : catchableFish) {
             System.out.println(fish.toString());
         }
-
         return catchableFish;
-
     }
 
     @Override
@@ -73,7 +63,7 @@ public class Fish {
     }
 
     public void tableheader() {
-        System.out.println(String.format("\nFangbare Fische:\n|%5s|%15s|%10s|%10s|%5s|", "Id", "Name" ,"Größe", "Ort", "Preis") + "\n---------------------------------------------------");
+        System.out.println(String.format("\nFangbare Fische:\n|%5s|%15s|%10s|%10s|%5s|", "Id", "Name", "Größe", "Ort", "Preis") + "\n---------------------------------------------------");
     }
 
     public int getFishId() {

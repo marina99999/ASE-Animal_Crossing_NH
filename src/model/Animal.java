@@ -15,7 +15,6 @@ public class Animal {
         this.animalSea = animalSea;
     }
 
-
     public List<Fish> getAnimalFish() {
         return animalFish;
     }

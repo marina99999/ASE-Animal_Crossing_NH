@@ -9,7 +9,7 @@ public class SetupService {
 
     public void firstSetup() throws FileNotFoundException {
         AnimalRepository f = new AnimalRepository();
-        Animal hardcodedAnimal = f.createhardcodeAnimal();
+        Animal hardcodedAnimal = f.createHardcodedAnimal();
         UserInteraction user = new UserInteraction();
         UserService userService = new UserService();
         InformationService informationService = new InformationService();

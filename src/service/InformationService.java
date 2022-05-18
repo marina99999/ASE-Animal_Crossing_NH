@@ -1,7 +1,6 @@
 package service;
 
 import model.Animal;
-import model.Fish;
 
 public class InformationService {
 
@@ -9,9 +8,9 @@ public class InformationService {
         int hemisphere = userInput[0];
         int month = userInput[1];
         int time = userInput[2];
-        hardcodedAnimal.getAnimalFish().get(1).getCachableFish(userInput, hardcodedAnimal);
-        hardcodedAnimal.getAnimalSea().get(1).getCachableSea(userInput, hardcodedAnimal);
-        hardcodedAnimal.getAnimalBug().get(1).getCachableBug(userInput,hardcodedAnimal);
+        hardcodedAnimal.getAnimalFish().get(1).getCatchableFish(userInput, hardcodedAnimal);
+        hardcodedAnimal.getAnimalSea().get(1).getCatchableSea(userInput, hardcodedAnimal);
+        hardcodedAnimal.getAnimalBug().get(1).getCatchableBug(userInput,hardcodedAnimal);
 
     }
 }

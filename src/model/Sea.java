@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -26,7 +25,7 @@ public class Sea {
         this.monthArraySouthern = monthArraySouthern;
     }
 
-    public List getCachableSea(int[] userInput, Animal animalList){
+    public List getCatchableSea(int[] userInput, Animal animalList){
         tableheader();
         List<Sea> catchableSea = new ArrayList<>();
         List<Sea> checkTime = new ArrayList<>();
@@ -51,14 +50,11 @@ public class Sea {
                     catchableSea.add(sea);
                 }
             }
-
         }
         for (Sea sea: catchableSea) {
             System.out.println(sea.toString());
         }
-
         return catchableSea;
-
     }
 
     public int getSeaId() {
