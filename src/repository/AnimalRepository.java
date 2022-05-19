@@ -32,13 +32,4 @@ public class AnimalRepository {
         Animal hardcodedAnimal = new Animal( animalFish, animalBug, animalSea);
         return hardcodedAnimal;
     }
-
-    @Override
-    public String toString() {
-        return "AnimalRepository{" +
-                "animalFish=" + animalFish.toString() + "jfjljrlijlij"+
-                ", animalBug=" + animalBug.toString() +
-                ", animalSea=" + animalSea.toString() +
-                '}';
-    }
 }

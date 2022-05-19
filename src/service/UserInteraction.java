@@ -16,7 +16,7 @@ public class UserInteraction {
         Scanner userInputScanner = new Scanner(System.in);
         System.out.println("Liegt deine Insel auf der Nordhalbkugel(1) oder Südhalbkugel(2)?");
         int hemisphere = userInputScanner.nextInt();
-        System.out.printf("Welcher Monat ist gerade auf deiner Insel? (Beispiel: 1 = Januar, ..., 12 = Dezember)");
+        System.out.println("Welcher Monat ist gerade auf deiner Insel? (Beispiel: 1 = Januar, ..., 12 = Dezember)");
         int month = userInputScanner.nextInt();
         System.out.println("Welche Uhrzeit ist auf deiner Insel? (Bitte nur die volle Stunde eingeben. Beispiel: 16 für 16:34 Uhr und 1 für 01:30 Uhr");
         int time = userInputScanner.nextInt();
