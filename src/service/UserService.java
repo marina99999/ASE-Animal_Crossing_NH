@@ -38,6 +38,7 @@ public class UserService {
         if (containsBug || containsSea || containsFish) {
             return true;
         } else {
+            System.out.println("Das Tier existiert leider nicht in ACNH, probiere es mit einem anderen Tier!");
             return false;
         }
     }
