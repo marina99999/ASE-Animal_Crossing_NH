@@ -20,12 +20,7 @@ class BugTest {
     @BeforeEach
     void setUp() {
         animalBug.add(testBug);
-
         testAnimal = new Animal(animalFish, animalBug, animalSea);
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
     @Test
