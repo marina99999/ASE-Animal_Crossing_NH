@@ -11,6 +11,5 @@ public class InformationService {
         hardcodedAnimal.getAnimalFish().get(1).getCatchableFish(userInput, hardcodedAnimal);
         hardcodedAnimal.getAnimalSea().get(1).getCatchableSea(userInput, hardcodedAnimal);
         hardcodedAnimal.getAnimalBug().get(1).getCatchableBug(userInput,hardcodedAnimal);
-
     }
 }
