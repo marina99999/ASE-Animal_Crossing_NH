@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Bug {
+public class Bug implements AnimalInterface{
     private int bugId;
     private String name;
     private String location;
@@ -55,32 +55,8 @@ public class Bug {
         return catchableBug;
     }
 
-    public int getBugId() {
-        return bugId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     public String getLocation() {
         return location;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public int[] getTimeArray() {
-        return timeArray;
-    }
-
-    public int[] getMonthArrayNorthern() {
-        return monthArrayNorthern;
-    }
-
-    public int[] getMonthArraySouthern() {
-        return monthArraySouthern;
     }
 
     @Override
@@ -90,5 +66,35 @@ public class Bug {
 
     public void tableheader() {
         System.out.println(String.format("\nFangbare Insekten:\n|%5s|%15s|%10s|%5s|", "Id", "Name", "Ort", "Preis") + "\n----------------------------------------");
+    }
+
+    @Override
+    public int getId() {
+        return bugId;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public int[] getTimeArray() {
+        return timeArray;
+    }
+
+    @Override
+    public int[] getMonthArrayNorthern() {
+        return monthArrayNorthern;
+    }
+
+    @Override
+    public int[] getMonthArraySouthern() {
+        return monthArraySouthern;
     }
 }

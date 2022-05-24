@@ -36,7 +36,7 @@ class FishTest {
 
     @Test
     void getFishId() {
-        assertEquals(1, testAnimal.getAnimalFish().get(0).getFishId());
+        assertEquals(1, testAnimal.getAnimalFish().get(0).getId());
     }
 
     @Test

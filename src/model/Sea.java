@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Sea {
+public class Sea implements AnimalInterface{
     private int seaId;
     private String name;
     private String shadow;
@@ -57,36 +57,12 @@ public class Sea {
         return catchableSea;
     }
 
-    public int getSeaId() {
-        return seaId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     public String getShadow() {
         return shadow;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
     public String getSpeed() {
         return speed;
-    }
-
-    public int[] getTimeArray() {
-        return timeArray;
-    }
-
-    public int[] getMonthArrayNorthern() {
-        return monthArrayNorthern;
-    }
-
-    public int[] getMonthArraySouthern() {
-        return monthArraySouthern;
     }
 
     @Override
@@ -96,5 +72,35 @@ public class Sea {
 
     public void tableheader() {
         System.out.println(String.format("\nFangbare Meerestiere:\n|%5s|%20s|%10s|%15s|%5s|", "Id", "Name", "Größe", "Geschwindigkeit", "Preis") + "\n-------------------------------------------------------------");
+    }
+
+    @Override
+    public int getId() {
+        return seaId;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public int[] getTimeArray() {
+        return timeArray;
+    }
+
+    @Override
+    public int[] getMonthArrayNorthern() {
+        return monthArrayNorthern;
+    }
+
+    @Override
+    public int[] getMonthArraySouthern() {
+        return monthArraySouthern;
     }
 }

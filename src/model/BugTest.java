@@ -31,7 +31,7 @@ class BugTest {
 
     @Test
     void getBugId() {
-        assertEquals(1, testAnimal.getAnimalBug().get(0).getBugId());
+        assertEquals(1, testAnimal.getAnimalBug().get(0).getId());
     }
 
     @Test

@@ -31,7 +31,7 @@ class AnimalTest {
     @org.junit.jupiter.api.Test
     void getAnimalFish() {
         assertEquals(1, testAnimal.getAnimalFish().size());
-        assertEquals(1, testAnimal.getAnimalFish().get(0).getFishId());
+        assertEquals(1, testAnimal.getAnimalFish().get(0).getId());
         assertTrue(testAnimal.getAnimalFish().stream().anyMatch(o -> o.getName().equals("Test-Fisch")));
         assertEquals("|    1|     Test-Fisch| winzig(1)|     Fluss|  900|" , testAnimal.getAnimalFish().get(0).toString());
     }
@@ -39,7 +39,7 @@ class AnimalTest {
     @org.junit.jupiter.api.Test
     void getAnimalBug() {
         assertEquals(1, testAnimal.getAnimalBug().size());
-        assertEquals(1, testAnimal.getAnimalBug().get(0).getBugId());
+        assertEquals(1, testAnimal.getAnimalBug().get(0).getId());
         assertTrue(testAnimal.getAnimalBug().stream().anyMatch(o -> o.getName().equals("Test-Insekt")));
         assertEquals("|    1|    Test-Insekt|  fliegend|  160|", testAnimal.getAnimalBug().get(0).toString());
     }
@@ -47,7 +47,7 @@ class AnimalTest {
     @org.junit.jupiter.api.Test
     void getAnimalSea() {
         assertEquals(1, testAnimal.getAnimalSea().size());
-        assertEquals(1, testAnimal.getAnimalSea().get(0).getSeaId());
+        assertEquals(1, testAnimal.getAnimalSea().get(0).getId());
         assertTrue(testAnimal.getAnimalSea().stream().anyMatch(o -> o.getName().equals("Test-Meerestier")));
         assertEquals("|    1|     Test-Meerestier|      groß|   stillstehend|  600|", testAnimal.getAnimalSea().get(0).toString());
     }

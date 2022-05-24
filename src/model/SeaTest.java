@@ -30,7 +30,7 @@ class SeaTest {
 
     @Test
     void getSeaId() {
-        assertEquals(1, testAnimal.getAnimalSea().get(0).getSeaId());
+        assertEquals(1, testAnimal.getAnimalSea().get(0).getId());
     }
 
     @Test
