@@ -13,6 +13,15 @@ public final class AnimalRepository {
     private List<Bug> animalBug = new ArrayList<>();
     private List<Sea> animalSea = new ArrayList<>();
 
+    public static AnimalRepository INSTANCE;
+    public AnimalRepository() {
+        createHardcodedAnimal();
+    }
+    public static AnimalRepository getINSTANCE() {
+        if (INSTANCE == null){INSTANCE = new AnimalRepository();}
+        return INSTANCE;
+    }
+
     public Animal createHardcodedAnimal(){
         Fish bitterling = new Fish(1, "Bitterling", "winzig(1)", "Fluss", 900, new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}, new int[]{11, 12, 1, 2, 3}, new int[]{5, 6, 7, 8, 9});
         Fish doebel = new Fish(2, "Döbel", "winzig(1)", "Fluss", 200, new int[]{ 9, 10, 11, 12, 13, 14, 15}, new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}, new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12});
