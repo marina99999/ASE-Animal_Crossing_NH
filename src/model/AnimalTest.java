@@ -15,7 +15,7 @@ class AnimalTest {
     private List<Sea> animalSea = new ArrayList<>();
 
     @BeforeEach
-    public void init() {
+    public void setUp() {
         Fish testFish = new Fish(1, "Test-Fisch", "winzig(1)", "Fluss", 900, new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23}, new int[]{11, 12, 1, 2, 3}, new int[]{5, 6, 7, 8, 9});
         animalFish.add(testFish);
 

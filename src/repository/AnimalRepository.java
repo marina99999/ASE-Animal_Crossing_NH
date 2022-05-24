@@ -8,7 +8,7 @@ import model.Sea;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnimalRepository {
+public final class AnimalRepository {
     private List<Fish> animalFish = new ArrayList<>();
     private List<Bug> animalBug = new ArrayList<>();
     private List<Sea> animalSea = new ArrayList<>();
@@ -29,7 +29,7 @@ public class AnimalRepository {
         animalSea.add(wakameAlge);
         animalSea.add(kriechsprossalge);
 
-        Animal hardcodedAnimal = new Animal( animalFish, animalBug, animalSea);
+        Animal hardcodedAnimal = new Animal(animalFish, animalBug, animalSea);
         return hardcodedAnimal;
     }
 }

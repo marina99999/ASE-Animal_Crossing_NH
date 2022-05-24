@@ -7,17 +7,16 @@ import java.io.FileNotFoundException;
 
 public class SetupService {
     public void firstSetup() throws FileNotFoundException {
-        AnimalRepository f = new AnimalRepository();
-        Animal hardcodedAnimal = f.createHardcodedAnimal();
-        UserInteraction user = new UserInteraction();
+        AnimalRepository animalRepository = new AnimalRepository();
+        Animal hardcodedAnimal = animalRepository.createHardcodedAnimal();
+        UserInteraction userInteraction = new UserInteraction();
         UserService userService = new UserService();
         InformationService informationService = new InformationService();
 
-        user.showFirstMessage();
+        userInteraction.showFirstMessage();
         userService.createDirectory();
-        String userName = user.getUserInputForUserCreation();
+        String userName = userInteraction.getUserInputForUserCreation();
         userService.createUserFile(userName);
-        user.getNextAction(informationService, userService, userName, hardcodedAnimal);
-
+        userInteraction.getNextAction(informationService, userService, userName, hardcodedAnimal);
     }
 }
