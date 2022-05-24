@@ -20,8 +20,7 @@ public class UserInteraction {
         int month = userInputScanner.nextInt();
         System.out.println("Welche Uhrzeit ist auf deiner Insel? (Bitte nur die volle Stunde eingeben. Beispiel: 16 für 16:34 Uhr und 1 für 01:30 Uhr");
         int time = userInputScanner.nextInt();
-        int[] userInput = {hemisphere,month,time};
-        return userInput;
+        return new int[]{hemisphere, month, time};
     }
 
     public String getUserInputForUserCreation(){
