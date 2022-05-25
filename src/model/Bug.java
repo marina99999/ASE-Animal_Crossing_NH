@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Bug implements AnimalInterface{
+public class Bug implements AnimalInterface, AnimalLocationInterface{
     private int bugId;
     private String name;
     private String location;
@@ -55,6 +55,7 @@ public class Bug implements AnimalInterface{
         return catchableBug;
     }
 
+    @Override
     public String getLocation() {
         return location;
     }

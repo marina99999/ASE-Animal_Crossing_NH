@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Sea implements AnimalInterface{
+public class Sea implements AnimalInterface, AnimalSpeedInterface, AnimalShadowInterface{
     private int seaId;
     private String name;
     private String shadow;
@@ -57,10 +57,12 @@ public class Sea implements AnimalInterface{
         return catchableSea;
     }
 
+    @Override
     public String getShadow() {
         return shadow;
     }
 
+    @Override
     public String getSpeed() {
         return speed;
     }

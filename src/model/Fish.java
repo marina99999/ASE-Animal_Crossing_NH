@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Fish implements AnimalInterface{
+public class Fish implements AnimalInterface, AnimalShadowInterface, AnimalLocationInterface{
 
     private int fishId;
     private String name;
@@ -66,10 +66,12 @@ public class Fish implements AnimalInterface{
         System.out.println(String.format("\nFangbare Fische:\n|%5s|%15s|%10s|%10s|%5s|", "Id", "Name", "Größe", "Ort", "Preis") + "\n---------------------------------------------------");
     }
 
+    @Override
     public String getShadow() {
         return shadow;
     }
 
+    @Override
     public String getLocation() {
         return location;
     }
