@@ -5,7 +5,7 @@ import model.Animal;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class UserInteraction {
+public class UserInteraction implements UserInteractionInterface {
 
     public void showFirstMessage(){
         System.out.println("Willkommen zum Animal Crossing: New Horizons Hilfsprogramm");
@@ -37,6 +37,7 @@ public class UserInteraction {
         return animalName;
     }
 
+    @Override
     public void getNextAction(InformationService informationService, UserService userService, String userName, Animal hardcodedAnimal) throws FileNotFoundException {
         while(true) {
             System.out.println("Möchtest du ein Tier zum Inventar hinzufügen(1), dein Inventar anzeigen(2) oder möchtest du wissen, was du gerade fangen kannst(3)? Zum Beenden bitte die 4 eingeben.");
