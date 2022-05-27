@@ -3,11 +3,9 @@ package service;
 import model.Animal;
 
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class UserService {
+public class UserService implements UserServiceInterface{
     File userDirectory = new File("userDirectory");
 
     public void createDirectory() {
@@ -44,26 +42,35 @@ public class UserService {
     }
 
     public void addCheckedAnimalToUserFile(String userName, String animalName) {
-
-        Path path = Paths.get("userDirectory\\" + userName + ".txt");
-        boolean containsAnimalName = false;
-        try (PrintWriter pw = new PrintWriter(new FileWriter("userDirectory\\" + userName + ".txt", true)); BufferedReader br = new BufferedReader(new FileReader("userDirectory\\" + userName + ".txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                if (line.toLowerCase().contains(animalName.toLowerCase())) {
-                    containsAnimalName = true;
-                }
-            }
-            if (!containsAnimalName) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("userDirectory\\" + userName + ".txt", true))) {
+            if (!checkIfAnimalExistsInInventory(userName, animalName)) {
                 animalName = animalName.toLowerCase();
                 animalName = animalName.substring(0, 1).toUpperCase() + animalName.substring(1);
                 pw.println(animalName);
+                System.out.println("Tier erfolgreich zu deinem Inventar hinzugefügt!");
             } else {
                 System.out.println("Das Tier existiert bereits in deinem Inventar!");
             }
         } catch (IOException e) {
             System.err.println("Fehler beim Schreiben: " + e.getMessage());
         }
+    }
+
+    public boolean checkIfAnimalExistsInInventory(String userName, String animalName) throws IOException {
+        boolean containsAnimalName = false;
+        try (BufferedReader br = new BufferedReader(new FileReader("userDirectory\\" + userName + ".txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.toLowerCase().contains(animalName.toLowerCase())) {
+                    containsAnimalName = true;
+                } else {
+                    containsAnimalName = false;
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Fehler beim Schreiben: " + e.getMessage());
+        }
+        return containsAnimalName;
     }
 
     public void OutputAllAnimalsOfInventory(String userName) throws FileNotFoundException {
@@ -78,5 +85,4 @@ public class UserService {
             }
         }
     }
-
 }

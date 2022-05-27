@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Fish {
+public class Fish implements AnimalInterface, AnimalShadowInterface, AnimalLocationInterface{
 
     private int fishId;
     private String name;
@@ -66,34 +66,42 @@ public class Fish {
         System.out.println(String.format("\nFangbare Fische:\n|%5s|%15s|%10s|%10s|%5s|", "Id", "Name", "Größe", "Ort", "Preis") + "\n---------------------------------------------------");
     }
 
-    public int getFishId() {
-        return fishId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
+    @Override
     public String getShadow() {
         return shadow;
     }
 
+    @Override
     public String getLocation() {
         return location;
     }
 
+    @Override
+    public int getId() {
+        return fishId;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
     public int getPrice() {
         return price;
     }
 
+    @Override
     public int[] getTimeArray() {
         return timeArray;
     }
 
+    @Override
     public int[] getMonthArrayNorthern() {
         return monthArrayNorthern;
     }
 
+    @Override
     public int[] getMonthArraySouthern() {
         return monthArraySouthern;
     }
