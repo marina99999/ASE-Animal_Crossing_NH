@@ -3,11 +3,9 @@ package service;
 import model.Animal;
 
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class UserService {
+public class UserService implements UserServiceInterface{
     File userDirectory = new File("userDirectory");
 
     public void createDirectory() {
@@ -87,5 +85,4 @@ public class UserService {
             }
         }
     }
-
 }

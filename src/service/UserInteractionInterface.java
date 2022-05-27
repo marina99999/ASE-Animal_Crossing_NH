@@ -3,7 +3,6 @@ package service;
 import model.Animal;
 
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public interface UserInteractionInterface {
     public int[] getUserInputForCatchableAnimals();
