@@ -10,7 +10,7 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class UserInteractionTest {
+public class UserInteractionTest {
 
     UserInteraction userInteraction;
     ByteArrayOutputStream outputStream;

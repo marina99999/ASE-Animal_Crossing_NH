@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FishTest {
+public class FishTest {
 
     private Animal testAnimal;
     private List<Fish> animalFish = new ArrayList<>();

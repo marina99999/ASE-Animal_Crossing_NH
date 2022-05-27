@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class InformationServiceTest {
+public class InformationServiceTest {
 
     private Animal hardcodedAnimal;
     private InformationService informationService;
